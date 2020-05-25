@@ -53,8 +53,8 @@ namespace NumLockWatchTest
 
             if(registryKey == null)
             {
-                textBox2.Clear();
-                textBox2.AppendText("レジストリが開けませんでした。");
+                textBox1.Clear();
+                textBox1.AppendText("レジストリが開けませんでした。");
                 return false;
             }
 
@@ -65,16 +65,16 @@ namespace NumLockWatchTest
                 val = registryKey.GetValue("stringID");
                 if (val == null)
                 {
-                    textBox2.Clear();
-                    textBox2.AppendText("レジストリが開けませんでした。");
+                    textBox1.Clear();
+                    textBox1.AppendText("レジストリが開けませんでした。");
                     return false;
                 }
             }
 
             if (val.ToString() == "")
             {
-                textBox2.Clear();
-                textBox2.AppendText("レジストリキーを作成しました。");
+                textBox1.Clear();
+                textBox1.AppendText("レジストリキーを作成しました。");
                 return false;
             }
             else
