@@ -76,7 +76,7 @@ namespace NumLockWatchTest
             this.run.TabIndex = 1;
             this.run.Text = "デバイス一覧取得";
             this.run.UseVisualStyleBackColor = true;
-            this.run.Click += new System.EventHandler(this.run_Click);
+            this.run.Click += new System.EventHandler(this.Run_Click);
             // 
             // notifyIcon1
             // 
@@ -95,14 +95,14 @@ namespace NumLockWatchTest
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(121, 98);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
             // 
             // toolStripTextBox2
             // 
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(120, 22);
             this.toolStripTextBox2.Text = "textbox2";
-            this.toolStripTextBox2.Click += new System.EventHandler(this.toolStripTextBox2_Click);
+            this.toolStripTextBox2.Click += new System.EventHandler(this.ToolStripTextBox2_Click);
             this.toolStripTextBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.OnUpdateText);
             // 
             // toolStripTextBox1
@@ -110,7 +110,7 @@ namespace NumLockWatchTest
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(120, 22);
             this.toolStripTextBox1.Text = "textbox1";
-            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
+            this.toolStripTextBox1.Click += new System.EventHandler(this.ToolStripTextBox1_Click);
             this.toolStripTextBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.OnUpdateText);
             // 
             // toolStripSeparator1
@@ -123,7 +123,7 @@ namespace NumLockWatchTest
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.toolStripMenuItem1.Text = "設定";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -140,9 +140,9 @@ namespace NumLockWatchTest
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox2.Size = new System.Drawing.Size(350, 19);
             this.textBox2.TabIndex = 2;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
-            this.textBox2.Layout += new System.Windows.Forms.LayoutEventHandler(this.textBox2_Layout);
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox2_KeyDown);
+            this.textBox2.Layout += new System.Windows.Forms.LayoutEventHandler(this.TextBox2_Layout);
             // 
             // label1
             // 
@@ -161,7 +161,7 @@ namespace NumLockWatchTest
             this.button1.TabIndex = 4;
             this.button1.Text = "ID保存";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Form1
             // 

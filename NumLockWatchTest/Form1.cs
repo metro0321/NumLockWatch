@@ -93,7 +93,7 @@ namespace NumLockWatchTest
 
         private void Timer_func(object sender, ElapsedEventArgs e)
         {
-            find = find10keyKbd();
+            find = Find10keyKbd();
 
             if (Control.IsKeyLocked(Keys.NumLock))
             {
@@ -126,7 +126,7 @@ namespace NumLockWatchTest
             timer.Interval = 60000;
         }
 
-        public void updateText()
+        public void UpdateText()
         {
             textBox1.Clear();
 
@@ -155,7 +155,7 @@ namespace NumLockWatchTest
                 }
             }
         }
-        public bool find10keyKbd()
+        public bool Find10keyKbd()
         {
             IList<ManagementBaseObject> Devices = GetkbdDevices();
             foreach (ManagementBaseObject Device in Devices)
@@ -221,16 +221,13 @@ namespace NumLockWatchTest
             base.WndProc(ref m);
         }
 
-        private void run_Click(object sender, EventArgs e)
+        private void Run_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
             textBox1.AppendText("serching...");
 
             PrintDevices();
-            updateText();
-        }
-        private void Form_keyDown(ref Message m)
-        {
+            UpdateText();
         }
 
         private void Form1_RightToLeftLayoutChanged(object sender, EventArgs e)
@@ -252,7 +249,7 @@ namespace NumLockWatchTest
             return;
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
 
         }
@@ -278,7 +275,7 @@ namespace NumLockWatchTest
             }
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        private void ToolStripTextBox1_Click(object sender, EventArgs e)
         {
             if (timer.Enabled == false)
             {
@@ -290,24 +287,24 @@ namespace NumLockWatchTest
             }
         }
 
-        private void toolStripTextBox2_Click(object sender, EventArgs e)
+        private void ToolStripTextBox2_Click(object sender, EventArgs e)
         {
             win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
             win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.ShowInTaskbar = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Show();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
         }
 
-        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        private void TextBox2_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyValue.Equals(0x0d))
             {
@@ -315,11 +312,11 @@ namespace NumLockWatchTest
             }
         }
 
-        private void textBox2_Layout(object sender, LayoutEventArgs e)
+        private void TextBox2_Layout(object sender, LayoutEventArgs e)
         {
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             Setregkey();
         }
