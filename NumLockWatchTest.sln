@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumLockWatchTest", "NumLockWatchTest\NumLockWatchTest.csproj", "{186B7A1F-1787-49B5-BA9A-07CD032A986C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{186B7A1F-1787-49B5-BA9A-07CD032A986C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186B7A1F-1787-49B5-BA9A-07CD032A986C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186B7A1F-1787-49B5-BA9A-07CD032A986C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186B7A1F-1787-49B5-BA9A-07CD032A986C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {873FE93A-3978-4610-B7FF-47CDDCF3B24B}
+	EndGlobalSection
+EndGlobal

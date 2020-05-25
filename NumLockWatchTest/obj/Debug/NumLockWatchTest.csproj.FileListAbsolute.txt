@@ -1,0 +1,10 @@
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\bin\Debug\NumLockWatchTest.exe.config
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\bin\Debug\NumLockWatchTest.exe
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\bin\Debug\NumLockWatchTest.pdb
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Debug\NumLockWatchTest.Form1.resources
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Debug\NumLockWatchTest.Properties.Resources.resources
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Debug\NumLockWatchTest.csproj.GenerateResource.cache
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Debug\NumLockWatchTest.csproj.CoreCompileInputs.cache
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Debug\NumLockWatchTest.exe
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Debug\NumLockWatchTest.pdb
+C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Debug\NumLockWatchTest.csprojAssemblyReference.cache
