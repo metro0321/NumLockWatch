@@ -1,9 +1,0 @@
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\bin\Release\NumLockWatchTest.exe.config
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\bin\Release\NumLockWatchTest.exe
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\bin\Release\NumLockWatchTest.pdb
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Release\NumLockWatchTest.Form1.resources
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Release\NumLockWatchTest.Properties.Resources.resources
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Release\NumLockWatchTest.csproj.GenerateResource.cache
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Release\NumLockWatchTest.csproj.CoreCompileInputs.cache
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Release\NumLockWatchTest.exe
-C:\Users\bdu039013adm\source\repos\NumLockWatchTest\NumLockWatchTest\obj\Release\NumLockWatchTest.pdb
