@@ -87,8 +87,7 @@ namespace NumLockWatchTest
 
         private void Taskmenu_Close(object sender, EventArgs e) 
         {
-            this.notifyIcon1.Dispose();
-            Application.Exit();
+            Application_Exit(sender, e);
         }
 
         private void Timer_func(object sender, ElapsedEventArgs e)
@@ -334,6 +333,52 @@ namespace NumLockWatchTest
             }
 
             timer.Interval = 100;
+        }
+
+        private void Reg_erase_button_Click(object sender, EventArgs e)
+        {
+            if( MessageBox.Show("レジストリの登録を削除して終了します。","info", MessageBoxButtons.YesNo ) == DialogResult.Yes )
+            {
+                Microsoft.Win32.Registry.CurrentUser.DeleteSubKeyTree(@"Software\NumlockWatcher", false);
+                Application_Exit(sender, e);
+            }
+        }
+
+        private void Application_Exit(object sender, EventArgs e)
+        {
+            timer.Dispose();
+            this.notifyIcon1.Dispose();
+            Application.Exit();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            IList<ManagementBaseObject> Devices = GetkbdDevices();
+
+            dataGridView1.ColumnCount = 1;
+            dataGridView1.Columns[0].HeaderText = "DeviceID";
+
+
+
+            foreach (ManagementBaseObject Device in Devices)
+            {
+                foreach (var property in Device.Properties)
+                {
+                    if (property.Name == "DeviceID")
+                    {
+                        dataGridView1.Rows.Add(property.Value.ToString());
+                    }
+                }
+            }
+
+            dataGridView1.AutoResizeColumns();
+
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox2.Clear();
+            textBox2.AppendText(dataGridView1.CurrentCell.Value.ToString());
         }
     }
 }
