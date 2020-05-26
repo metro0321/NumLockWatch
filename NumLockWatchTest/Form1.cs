@@ -1,28 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
 using System.Timers;
-using System.Threading;
-using System.Xml;
-using Microsoft.Win32;
 using System.Runtime.InteropServices;
-using System.Data.Odbc;
 
 namespace NumLockWatchTest
 {
     public partial class Form1 : Form
     {
-        public class win32api
+        public class Win32api
         {
             [DllImport("user32.dll")]
-            public static extern uint keybd_event(byte b1, byte b2, uint ui1 , UIntPtr uIntPtr1 );
+            public static extern uint keybd_event(byte b1, byte b2, uint ui1, UIntPtr uIntPtr1);
         }
 
         public Form1()
@@ -36,10 +27,10 @@ namespace NumLockWatchTest
             bool regOk = OpenRegKey();
             if (regOk == false)
             {
-                MessageBox.Show("キーボードのDeviceIDを登録してください。");
-                this.ShowInTaskbar = true;
-                this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-                this.Show();
+                _ = MessageBox.Show(text: "キーボードのDeviceIDを登録してください。");
+                ShowInTaskbar = true;
+                WindowState = System.Windows.Forms.FormWindowState.Normal;
+                Show();
             }
 
         }
@@ -102,8 +93,8 @@ namespace NumLockWatchTest
                 }
                 else
                 {
-                    win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
-                    win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
+                    _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
+                    _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
                 }
             }
             else
@@ -114,8 +105,8 @@ namespace NumLockWatchTest
                 }
                 else
                 {
-                    win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
-                    win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
+                    _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
+                    _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
                 }
             }
 
@@ -206,8 +197,8 @@ namespace NumLockWatchTest
             switch (m.Msg)
             {
                 case WM_CLOSE:
-                    this.ShowInTaskbar = false;
-                    this.Hide();
+                    ShowInTaskbar = false;
+                    Hide();
                     return;
                 case WM_KEYDOWN:
                     break;
@@ -255,23 +246,9 @@ namespace NumLockWatchTest
 
         private void OnUpdateText(object sender, PaintEventArgs e)
         {
-            if(timer.Enabled == false)
-            {
-                toolStripTextBox1.Text = "停止中";
-            }
-            else
-            {
-                toolStripTextBox1.Text = "監視中";
-            }
+            toolStripTextBox1.Text = timer.Enabled == false ? "停止中" : "監視中";
 
-            if (Control.IsKeyLocked(Keys.NumLock))
-            {
-                toolStripTextBox2.Text = "NumLock ON";
-            }
-            else
-            {
-                toolStripTextBox2.Text = "NumLock OFF";
-            }
+            toolStripTextBox2.Text = IsKeyLocked(Keys.NumLock) ? "NumLock ON" : "NumLock OFF";
         }
 
         private void ToolStripTextBox1_Click(object sender, EventArgs e)
@@ -288,15 +265,15 @@ namespace NumLockWatchTest
 
         private void ToolStripTextBox2_Click(object sender, EventArgs e)
         {
-            win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
-            win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
+            _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
+            _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
         }
 
         private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.ShowInTaskbar = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            this.Show();
+            ShowInTaskbar = true;
+            WindowState = System.Windows.Forms.FormWindowState.Normal;
+            Show();
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
@@ -347,7 +324,7 @@ namespace NumLockWatchTest
         private void Application_Exit(object sender, EventArgs e)
         {
             timer.Dispose();
-            this.notifyIcon1.Dispose();
+            notifyIcon1.Dispose();
             Application.Exit();
         }
 
@@ -357,8 +334,6 @@ namespace NumLockWatchTest
 
             dataGridView1.ColumnCount = 1;
             dataGridView1.Columns[0].HeaderText = "DeviceID";
-
-
 
             foreach (ManagementBaseObject Device in Devices)
             {
@@ -373,12 +348,40 @@ namespace NumLockWatchTest
 
             dataGridView1.AutoResizeColumns();
 
+            button2.Text = timer.Enabled == false ? "停止中" : "監視中";
+            button3.Text = IsKeyLocked(Keys.NumLock) ? "NumLock ON" : "NumLock OFF";
+
+
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             textBox2.Clear();
             textBox2.AppendText(dataGridView1.CurrentCell.Value.ToString());
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (timer.Enabled == false)
+            {
+                timer.Start();
+            }
+            else
+            {
+                timer.Stop();
+            }
+
+            button2.Text = timer.Enabled == false ? "停止中" : "監視中";
+
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYDOWN, (UIntPtr)0);
+            _ = Win32api.keybd_event(VK_NUMLOCK, 0, KEYEVENTF_KEYUP, (UIntPtr)0);
+
+            button3.Text = IsKeyLocked(Keys.NumLock) ? "NumLock ON" : "NumLock OFF";
+
         }
     }
 }
