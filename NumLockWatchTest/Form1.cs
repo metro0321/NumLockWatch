@@ -6,6 +6,8 @@ using System.Management;
 using System.Timers;
 using System.Runtime.InteropServices;
 
+//ver1.0
+
 namespace NumLockWatchTest
 {
     public partial class Form1 : Form
@@ -203,6 +205,8 @@ namespace NumLockWatchTest
                 case WM_KEYDOWN:
                     break;
                 case WM_DEVICECHANGE:
+                    timer.Stop();
+                    timer.Interval = 100;
                     timer.Start();
                     break;
                 default:
