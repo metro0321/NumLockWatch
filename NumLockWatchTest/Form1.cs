@@ -22,6 +22,8 @@ namespace NumLockWatchTest
         {
             InitializeComponent();
 
+            device_changed = true;
+
             timer = new System.Timers.Timer(100);
             timer.Elapsed += Timer_func;
             timer.Start();
@@ -183,6 +185,37 @@ namespace NumLockWatchTest
             return comDevices;
         }
 
+        public void UpdateSettingWindow()
+        {
+            button2.Text = timer.Enabled == false ? "停止中" : "監視中";
+            button3.Text = IsKeyLocked(Keys.NumLock) ? "NumLock ON" : "NumLock OFF";
+
+            if (device_changed)
+			{
+                dataGridView1.Rows.Clear();
+
+                IList<ManagementBaseObject> Devices = GetkbdDevices();
+
+                dataGridView1.ColumnCount = 1;
+                dataGridView1.Columns[0].HeaderText = "DeviceID";
+
+                foreach (ManagementBaseObject Device in Devices)
+                {
+                    foreach (var property in Device.Properties)
+                    {
+                        if (property.Name == "DeviceID")
+                        {
+                            dataGridView1.Rows.Add(property.Value.ToString());
+                        }
+                    }
+                }
+            }
+
+            dataGridView1.AutoResizeColumns();
+            dataGridView1.ReadOnly = true;
+
+            device_changed = false;
+        }
 
         // run a query against Windows Management Infrastructure (MI) and return the resulting collection
         public static ManagementObjectCollection QueryMi(string query)
@@ -208,6 +241,7 @@ namespace NumLockWatchTest
                     timer.Stop();
                     timer.Interval = 100;
                     timer.Start();
+                    device_changed = true;
                     break;
                 default:
                     break;
@@ -277,6 +311,7 @@ namespace NumLockWatchTest
         {
             ShowInTaskbar = true;
             WindowState = System.Windows.Forms.FormWindowState.Normal;
+            UpdateSettingWindow();
             Show();
         }
 
@@ -334,28 +369,7 @@ namespace NumLockWatchTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            IList<ManagementBaseObject> Devices = GetkbdDevices();
-
-            dataGridView1.ColumnCount = 1;
-            dataGridView1.Columns[0].HeaderText = "DeviceID";
-
-            foreach (ManagementBaseObject Device in Devices)
-            {
-                foreach (var property in Device.Properties)
-                {
-                    if (property.Name == "DeviceID")
-                    {
-                        dataGridView1.Rows.Add(property.Value.ToString());
-                    }
-                }
-            }
-
-            dataGridView1.AutoResizeColumns();
-
-            button2.Text = timer.Enabled == false ? "停止中" : "監視中";
-            button3.Text = IsKeyLocked(Keys.NumLock) ? "NumLock ON" : "NumLock OFF";
-
-
+            UpdateSettingWindow();
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -271,7 +271,8 @@ namespace NumLockWatchTest
         private string str1;
         private System.Windows.Forms.Button run;
         private bool find;
-        private System.Timers.Timer timer;
+        private bool device_changed;
+		private System.Timers.Timer timer;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
