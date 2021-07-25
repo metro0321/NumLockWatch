@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{186B7A1F-1787-49B5-BA9A-07CD032A986C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NumLockWatchTest</RootNamespace>
-    <AssemblyName>NumLockWatchTest</AssemblyName>
+    <RootNamespace>NumLockWatch</RootNamespace>
+    <AssemblyName>NumLockWatch</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

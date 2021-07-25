@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NumLockWatchTest;
+using NumLockWatch;
 using System.Runtime.CompilerServices;
 
 namespace UsbBrowser
@@ -18,7 +18,7 @@ namespace UsbBrowser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form1 = new NumLockWatchTest.Form1();
+            var form1 = new NumLockWatch.Form1();
             Application.Run();
         }
     }
